@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #d8d0bc;
+  --shadow-dark: #b8b09b;
+  --shadow-light: #f4eedc;
+  --ink: #1e2a22;
+  --muted: #4a5a4f;
+  --green-text: #1f5a33;
+  --green-fill: #2e7d4f;
+  --green-fill-hover: #276b44;
+  --green-tint: rgba(46, 125, 79, 0.12);
+  --line: rgba(30, 42, 34, 0.08);
+  --radius-card: 24px;
+  --font-heading: var(--font-jakarta), system-ui, sans-serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-neu-bg: var(--bg);
+  --color-neu-ink: var(--ink);
+  --color-neu-muted: var(--muted);
+  --font-sans: var(--font-body);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+p {
+  max-width: 65ch;
+}
+
+/* Neumorphism surfaces — page and surfaces share bg */
+.neu-raised {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  box-shadow:
+    8px 8px 18px var(--shadow-dark),
+    -8px -8px 18px var(--shadow-light);
+}
+
+.neu-raised-sm {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  box-shadow:
+    4px 4px 10px var(--shadow-dark),
+    -4px -4px 10px var(--shadow-light);
+}
+
+.neu-inset {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  box-shadow:
+    inset 4px 4px 9px var(--shadow-dark),
+    inset -4px -4px 9px var(--shadow-light);
+}
+
+.neu-btn {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  transition:
+    box-shadow 150ms ease,
+    transform 150ms ease,
+    background 150ms ease;
+}
+
+.neu-btn-secondary {
+  background: var(--bg);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  box-shadow:
+    4px 4px 10px var(--shadow-dark),
+    -4px -4px 10px var(--shadow-light);
+}
+
+.neu-btn-secondary:hover {
+  box-shadow:
+    6px 6px 14px var(--shadow-dark),
+    -6px -6px 14px var(--shadow-light);
+}
+
+.neu-btn-secondary:active {
+  box-shadow:
+    inset 4px 4px 9px var(--shadow-dark),
+    inset -4px -4px 9px var(--shadow-light);
+}
+
+.neu-btn-primary {
+  background: var(--green-fill);
+  color: #fff;
+  border: 1px solid transparent;
+  box-shadow:
+    4px 4px 10px var(--shadow-dark),
+    -4px -4px 10px var(--shadow-light);
+}
+
+.neu-btn-primary:hover {
+  background: var(--green-fill-hover);
+}
+
+.neu-btn-primary:active {
+  box-shadow:
+    inset 4px 4px 9px rgba(0, 0, 0, 0.25),
+    inset -4px -4px 9px rgba(255, 255, 255, 0.15);
+}
+
+:focus-visible {
+  outline: 2px solid var(--green-text);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.card-lift {
+  transition:
+    box-shadow 200ms ease,
+    transform 200ms ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    10px 10px 22px var(--shadow-dark),
+    -10px -10px 22px var(--shadow-light);
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 50;
+  background: var(--green-fill);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 12px 0;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+.tag-plain {
+  background: var(--green-tint);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.muted-text {
+  color: var(--muted);
+}
+
+.green-text {
+  color: var(--green-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
