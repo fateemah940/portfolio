@@ -34,16 +34,16 @@ export function Nav() {
     <header className="sticky top-0 z-40 pt-3">
       <nav
         aria-label="Primary"
-        className="mx-auto flex max-w-[1040px] flex-wrap items-center justify-between gap-3 px-4"
+        className="mx-auto flex w-full max-w-[1040px] items-center gap-2 px-4"
       >
         <a
           href="#top"
-          className="neu-raised-sm px-4 py-2 text-sm font-bold"
+          className="neu-raised-sm shrink-0 px-4 py-2 text-sm font-bold"
           aria-label="Back to top — Yahaya Abubakar"
         >
           YA
         </a>
-        <div className="neu-raised-sm flex flex-wrap items-center gap-1 p-1.5">
+        <div className="neu-raised-sm flex min-w-0 flex-1 items-center gap-1 overflow-x-auto p-1.5">
           {LINKS.map((l) => {
             const id = l.href.slice(1);
             const isActive = active === id;
@@ -52,7 +52,7 @@ export function Nav() {
                 key={l.href}
                 href={l.href}
                 aria-current={isActive ? "true" : undefined}
-                className={`rounded-full px-3 py-2 text-sm font-medium transition-shadow ${
+                className={`shrink-0 rounded-full px-2.5 py-2 text-[13px] font-medium transition-shadow sm:px-3 sm:text-sm ${
                   isActive ? "neu-inset green-text" : "hover:underline"
                 }`}
                 style={{ minHeight: 44, display: "inline-flex", alignItems: "center" }}

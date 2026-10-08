@@ -18,7 +18,7 @@ export function Contact() {
   return (
     <section id="contact" aria-labelledby="contact-h" className="mx-auto max-w-[1040px] scroll-mt-24 px-4 pt-16">
       <Reveal>
-        <article aria-labelledby="contact-h" className="neu-raised p-8 text-center md:p-12">
+        <article aria-labelledby="contact-h" className="neu-raised p-6 text-center sm:p-8 md:p-12">
           <h2 id="contact-h" className="text-2xl font-bold md:text-4xl">
             Contact
           </h2>
